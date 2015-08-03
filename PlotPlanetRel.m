@@ -1,2 +1,2 @@
 run EarthCoordinates
-plot(PlanetRelative(:,1),PlanetRelative(:,2),plotX,plotY)
+plot(PlanetRelative(:,1),PlanetRelative(:,2),plotXY(:,1),plotXY(:,2))
