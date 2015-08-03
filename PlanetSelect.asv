@@ -5,11 +5,18 @@ load 'Mars Atmo Data.mat'
 [R_planet,Omega_planet,AtmoAlt_planet,GM_planet,Planet] = PlanetParameters(Planet);
 
 if strcmp('Earth',Planet) == 1
-    AtmoData = EarthAtmoDataRSS;
+    AtmoData = MarsA
 elseif strcmp('Mars',Planet) == 1
-    AtmoData = MarsAtmoDataRSS;
+    R_planet = 3389500; %m
+    Omega_planet = (2*pi)/(24.6229*60*60); %radians/sec
+    AtmoAlt_planet = 130000; %m
+    GM_planet = 4.2828E13; %m^3/s^2
 else
-    AtmoData = 0;   
+    R_planet = 0;
+    Omega_planet = 0;
+    AtmoAlt_planet = 0;
+    GM_planet =  0;
+    Planet = 'Error';    
 end
 
 
@@ -32,8 +39,11 @@ CraftInitialP = [Px;Py];
 RefSurfArea = 1; % m^2
 Cd = 1;
 %Mass = 5600; % kg
-WetMass = 10000; % kg
+WetMass = 250; % kg
 DryMass = 0; % kg 
+load 'DragData_3manCap.mat'
+load 'EarthAtmoDataRSS.mat'
+load 'Mars Atmo Data.mat'
 
 g0 = 9.80665; % m/s^2 standard gravity
 q0 = 1.1577; % kg/m^3
