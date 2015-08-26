@@ -1,8 +1,10 @@
-Planet = 'Earth'; % Choice between Earth and Mars
+Planet = 'Mars'; % Choice between Earth and Mars
 load 'DragData_3manCap.mat'
 load 'EarthAtmoDataRSS.mat'
 load 'Mars Atmo Data.mat'
 load 'ThrustMassData.mat'
+Max = 80000; % m
+PitchProgramSet
 [R_planet,Omega_planet,AtmoAlt_planet,GM_planet,Planet] = PlanetParameters(Planet);
 
 if strcmp('Earth',Planet) == 1
@@ -13,6 +15,10 @@ else
     AtmoData = 0;   
 end
 
+TargetOrbit = 200000; % m
+
+PitchOverAlt = 1000;
+PitchAngle = 1;
 
 entry_angle = 6.5; % degrees
 entry_speed = 11000; % m/s
@@ -30,8 +36,8 @@ Vy = Z(2); % m/s
 CraftInitialV = [Vx;Vy];
 CraftInitialP = [Px;Py];
 
-RefSurfArea = 7.06; % m^2
-Cd = .15;
+RefSurfArea = 10.9; % m^2
+Cd = 2;
 %Mass = 5600; % kg
 %WetMass = 7100; % kg
 %DryMass = 3100; % kg 
