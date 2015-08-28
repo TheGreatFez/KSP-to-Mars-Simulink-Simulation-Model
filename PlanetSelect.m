@@ -3,7 +3,8 @@ load 'DragData_3manCap.mat'
 load 'EarthAtmoDataRSS.mat'
 load 'Mars Atmo Data.mat'
 load 'ThrustMassData.mat'
-Max = 80000; % m
+Max = 80000;
+PitchStart = 100;% m
 PitchProgramSet
 [R_planet,Omega_planet,AtmoAlt_planet,GM_planet,Planet] = PlanetParameters(Planet);
 
@@ -24,7 +25,7 @@ entry_angle = 6.5; % degrees
 entry_speed = 11000; % m/s
 
 Px = 0; % m
-Py = R_planet; % m
+Py = R_planet + [13667.6537500000]; % m
 
 X = [Px;Py;0];
 Y = [0;0;Omega_planet];
