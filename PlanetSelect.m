@@ -4,9 +4,16 @@ load 'EarthAtmoDataRSS.mat'
 load 'Mars Atmo Data.mat'
 load 'ThrustMassData.mat'
 Max = 80000;
-PitchStart = 100;% m
+
+K1 = 1.5;
+K2 = .825;
+
+%PitchOverAlt = 500; % m
+%PitchAngle = 10; % degrees 
+
 PitchProgramSet
-[R_planet,Omega_planet,AtmoAlt_planet,GM_planet,Planet] = PlanetParameters(Planet);
+
+[R_planet,GndAlt_planet,Omega_planet,AtmoAlt_planet,GM_planet,Planet] = PlanetParameters(Planet);
 
 if strcmp('Earth',Planet) == 1
     AtmoData = EarthAtmoDataRSS;
@@ -16,16 +23,13 @@ else
     AtmoData = 0;   
 end
 
-TargetOrbit = 200000; % m
-
-PitchOverAlt = 1000;
-PitchAngle = 1;
+TargetOrbit = 200000-GndAlt_planet; % m
 
 entry_angle = 6.5; % degrees
 entry_speed = 11000; % m/s
 
 Px = 0; % m
-Py = R_planet + [13667.6537500000]; % m
+Py = R_planet+.1; % m
 
 X = [Px;Py;0];
 Y = [0;0;Omega_planet];
