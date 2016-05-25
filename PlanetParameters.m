@@ -14,6 +14,12 @@ elseif strcmp('Mars',Planet) == 1
     Omega_planet = (2*pi)/(24.6229*60*60); %radians/sec
     AtmoAlt_planet = 130000; %m
     GM_planet = 4.2828E13; %m^3/s^2
+elseif strcmp('Kerbin',Planet) == 1
+    GndAlt_planet = 0; % m
+    R_planet = 600000+GndAlt_planet; % m
+    Omega_planet = (2*pi)/(5.983*60*60); %radians/sec
+    AtmoAlt_planet = 70000; %m
+    GM_planet = 3.5316E12; %m^3/s^2
 else
     GndAlt_planet = 0;
     R_planet = 0;
