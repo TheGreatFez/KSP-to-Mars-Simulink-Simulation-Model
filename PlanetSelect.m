@@ -11,6 +11,7 @@ LastStage = size(ThrustMassData,1);
 g0 = 9.80665; % m/s^2 standard gravity
 q0 = 1.1577; % kg/m^3
 Min_Throttle = 1.1*g0*ThrustMassData(1,1)/(1000*ThrustMassData(1,3));
+Max_Throttle = min(1,3*g0*ThrustMassData(1,1)/(1000*ThrustMassData(1,3)));
 K1 = 1.5;
 K2 = .825;
 
@@ -53,7 +54,7 @@ Vy = Z(2); % m/s
 CraftInitialV = [Vx;Vy];
 CraftInitialP = [Px;Py];
 
-RefSurfArea = 1.89; % m^2
+RefSurfArea = 10.8; % m^2
 Cd = 2;
 %Mass = 5600; % kg
 %WetMass = 7100; % kg
