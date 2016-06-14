@@ -17,10 +17,11 @@ K2 = .825;
 
 
 GravityTurn = 1;
-PitchOverAlt = 10000;
-PitchOverAngle = 0;
-Throttle = 1;
-SSIGN = 1000;
+PitchOverAlt = 1000;
+PitchOverAngle = 7.5;
+Throttle = 1.7*g0*ThrustMassData(1,1)/(1000*ThrustMassData(1,3));
+SSIGN = 306.412;
+PitchSwitch = .5;
 
 PitchProgram = PitchProgramSet(GravityTurn,PitchOverAlt,PitchOverAngle);
 
